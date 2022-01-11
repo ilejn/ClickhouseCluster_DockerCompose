@@ -59,8 +59,9 @@ services:
 
     clickhouse1:
         image: yandex/clickhouse-server
+        restart: always
         ports:
-            - "9100:9000"
+            - "9101:9000"
         expose:
           #replica sync port
           - "9010"
@@ -77,8 +78,9 @@ services:
 
     clickhouse2:
         image: yandex/clickhouse-server
+        restart: always
         ports:
-            - "9101:9000"
+            - "9102:9000"
         expose:
           #replica sync port
           - "9011"
@@ -95,9 +97,9 @@ services:
 
     clickhouse3:
         image: yandex/clickhouse-server
-        image: yandex/clickhouse-server
+        restart: always
         ports:
-            - "9102:9000"
+            - "9103:9000"
         expose:
           #replica sync port
           - "9012"
