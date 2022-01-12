@@ -117,7 +117,7 @@
          https://clickhouse.yandex/reference_en.html#Distributed
       -->
     <remote_servers>
-        <example>
+        <default_cluster>
             <shard>
                 <replica>
                     <host>clickhouse1</host>
@@ -129,10 +129,10 @@
                 </replica>
                 <replica>
                     <host>clickhouse3</host>
-                    <port>9003</port>
+                    <port>9000</port>
                 </replica>
             </shard>
-        </example>
+        </default_cluster>
     </remote_servers>
 
     <!-- If element has 'incl' attribute, then for it's value will be used corresponding substitution from another file.
@@ -165,6 +165,10 @@
         <replica>3</replica>
     </macros>
 
+		<distributed_ddl>
+        <!-- Path in ZooKeeper to queue with DDL queries -->
+        <path>/clickhouse/task_queue/ddl</path>
+		</distributed_ddl>
 
     <!-- Reloading interval for embedded dictionaries, in seconds. Default: 3600. -->
     <builtin_dictionaries_reload_interval>3600</builtin_dictionaries_reload_interval>
